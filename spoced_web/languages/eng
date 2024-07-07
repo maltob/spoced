@@ -1,0 +1,5 @@
+SERVER_NAME=SPOCED
+LOGIN_MESSAGE=Click the below login screen to sign in to the server
+LOGIN_TEXT=Login
+LOGOUT_TEXT=Logout
+VM_SELECT_MESSAGE=Select the VM type from the below.

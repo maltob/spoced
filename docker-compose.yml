@@ -1,0 +1,26 @@
+
+services:
+  webui:
+    build: spoced_web
+    ports:
+     - "127.0.0.1:8000:8000"
+    volumes:
+     - ./.webui.env:/app/.env
+    environment:
+     - GUAC_JSON_SECRET_KEY=${JSON_SECRET_KEY}
+    env_file: .env
+  guacd:
+    image: guacamole/guacd:1.5.5
+    ports:
+     - 127.0.0.1:4822:4822
+  guacamole:
+    image: guacamole/guacamole:1.5.5
+    ports: 
+     - 127.0.0.1:8080:8080
+    environment:
+     - GUACD_HOSTNAME=guacd
+     - GUACD_PORT=4822
+     - JSON_SECRET_KEY=${JSON_SECRET_KEY}
+     - JSON_json-secret-key=${JSON_SECRET_KEY}
+     - LOGBACK_LEVEL=debug
+    env_file: .env

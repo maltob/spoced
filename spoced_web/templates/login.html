@@ -1,0 +1,29 @@
+<html>
+
+<head>
+<title>{{ locale_str.get("SERVER_NAME") }}</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script src="{{ url_for('static', path='scripts/tailwind.js') }}" ></script>
+</head>
+<body class="flex justify-center">
+    
+<div class="bg-white py-24 sm:py-32 ">
+
+    <div class="mx-auto max-w-7xl px-32 lg:px-32 bg-white py-5 sm:py-10 justify-center ">
+        <p class="text-4xl  font-bold">{{ locale_str.get("SERVER_NAME") }}</p>
+        <p>{{ locale_str.get("LOGIN_MESSAGE") }}</p>
+        </div>
+
+<div class="mx-auto max-w-7xl px-32 lg:px-32 items-center block justify-center">
+<pre>{{ m }}</pre>
+<a href="{{ url_for('login') }}"><button class="flex items-center px-12 py-9 text-sm font-medium text-white hover:bg-green-400 focus:relative border-solid bg-green-600 object-center rounded-xl " > 
+   <img src="{{ url_for('static', path='images/login_icon.svg') }}" class="object-center px-1">{{ locale_str.get("LOGIN_TEXT") }}</button></a>
+
+</div>
+
+
+</div>
+</body>
+</html>
