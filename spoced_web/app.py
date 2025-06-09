@@ -1,4 +1,3 @@
-import json
 from fastapi import FastAPI, Query
 from starlette.config import Config
 from starlette.applications import Starlette
@@ -11,7 +10,6 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 
 from providers.proxmox import Proxmox
-import urllib.parse
 import datetime
 
 from guacamole import GuacamoleRDP,Guacamole
