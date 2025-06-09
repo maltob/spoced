@@ -87,8 +87,11 @@ async def homepage(request ):
 
 @app.route('/login')
 async def login(request):
-    redirect_uri = request.url_for('auth')
-    return await oauth.oidc.authorize_redirect(request, redirect_uri)
+    try:
+        redirect_uri = request.url_for('auth')
+        return await oauth.oidc.authorize_redirect(request, redirect_uri)
+    except:
+        return RedirectResponse(url='/#ErrorSignIn')
 
 
 @app.route('/auth')
